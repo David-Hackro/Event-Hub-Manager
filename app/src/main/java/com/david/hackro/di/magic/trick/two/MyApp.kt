@@ -8,7 +8,7 @@ class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        // Inicializa com.david.hackro.di.magic.trick.two.AnalyticsManager
+        // Initialize providers
         val analyticsProviders = listOf(
             AnalyticsManager.FirebaseAnalyticsProvider(this),
             AnalyticsManager.GoogleFirebaseAnalyticsProvider(this),
