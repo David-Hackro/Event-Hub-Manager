@@ -1,14 +1,14 @@
-# MyApp - Gestor de Análisis
+# Event-Hub-Manager
 
-Este proyecto Android utiliza la clase `AnalyticsManager` para facilitar la gestión de eventos de análisis a través de diversos proveedores. La estructura del proyecto se organiza en paquetes lógicos para mejorar la legibilidad y extensibilidad del código.
+This Android project utilizes the `AnalyticsManager` class to facilitate the management of analytics events across various providers. The project's structure is organized into logical packages to enhance code readability and extensibility.
 
 # Diagram
 
 ![English Diagram](english_diagram.png)
 
-## Configuración
+## Configuration
 
-Antes de utilizar `AnalyticsManager`, realiza la inicialización de los proveedores necesarios en la clase de aplicación (`MyApp.kt`).
+Before using `AnalyticsManager`, initialize the necessary providers in the application class (`MyApp.kt`).
 
 ```kotlin
 class MyApp : Application() {
@@ -16,9 +16,9 @@ class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        // Inicializa los proveedores de análisis
+        // Initialize analytics providers
         val analyticsProviders = listOf(
-            // Lista de proveedores aquí
+            // List of providers here
         )
 
         AnalyticsManager.initialize(analyticsProviders)
@@ -26,12 +26,12 @@ class MyApp : Application() {
 }
 ```
 
-## Uso
+## Usage
 
-Utiliza `AnalyticsManager` para gestionar eventos de análisis en cualquier parte de tu aplicación. La clase proporciona métodos para registrar eventos específicos con parámetros opcionales.
+Use `AnalyticsManager` to manage analytics events anywhere in your application. The class provides methods to log specific events with optional parameters.
 
 ```kotlin
-// Ejemplo de registro de un evento con parámetros
+// Example of logging an event with parameters
 private fun sendEventA() {
     val params = Bundle().apply {
         putString("key1", "value1")
@@ -41,42 +41,42 @@ private fun sendEventA() {
     AnalyticsManager.logEvent(HOME_SCREEN_CLICK_PRIMARY_BUTTON, params)
 }
 
-// Ejemplo de registro de un evento sin parámetros
+// Example of logging an event without parameters
 private fun sendEventB() {
     AnalyticsManager.logEvent(HOME_SCREEN_CLICK_SECONDARY_BUTTON)
 }
 ```
 
-### 1. Inicialización de Proveedores
+### 1. Providers Initialization
 
-En `MyApp.kt`, se inicializan los proveedores de análisis mediante la llamada a `AnalyticsManager.initialize(analyticsProviders)`.
+In `MyApp.kt`, analytics providers are initialized by calling `AnalyticsManager.initialize(analyticsProviders)`.
 
 ```kotlin
-// Ejemplo de inicialización en MyApp.kt
+// Example of initialization in MyApp.kt
 val analyticsProviders = listOf(
     AnalyticsManager.FirebaseAnalyticsProvider(this),
     AnalyticsManager.GoogleFirebaseAnalyticsProvider(this),
-    // Agrega otros proveedores según sea necesario
+    // Add other providers as needed
 )
 
 AnalyticsManager.initialize(analyticsProviders)
 ```
 
-### 2. Registro de Eventos
+### 2. Event Logging
 
-En cualquier parte de la aplicación, puedes utilizar `AnalyticsManager.logEvent(eventName, params)` para registrar eventos. La clase se encarga de distribuir el evento a los proveedores configurados.
+Anywhere in the application, you can use `AnalyticsManager.logEvent(eventName, params)` to log events. The class handles distributing the event to configured providers.
 
 ```kotlin
-// Ejemplo de registro de evento en cualquier parte de la aplicación
+// Example of event logging anywhere in the application
 AnalyticsManager.logEvent(HOME_SCREEN_CLICK_PRIMARY_BUTTON, params)
 ```
 
-La clase `AnalyticsManager` recorre los proveedores registrados y llama a sus métodos `logEvent` con el nombre del evento y los parámetros proporcionados.
+The `AnalyticsManager` class iterates through registered providers and calls their `logEvent` methods with the event name and provided parameters.
 
-## Contribuciones
+## Contributions
 
-¡Las contribuciones son bienvenidas! Si tienes sugerencias, problemas o nuevas funcionalidades, abre un "issue" o crea una "pull request".
+Contributions are welcome! If you have suggestions, issues, or new features, please open an issue or create a pull request.
 
-## Licencia
+## License
 
-Este proyecto está bajo la Licencia MIT. Consulta [LICENSE.md](LICENSE.md) para más detalles.
+This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md) for more details.
