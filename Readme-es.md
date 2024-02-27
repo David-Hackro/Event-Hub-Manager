@@ -2,9 +2,7 @@
 
 Este proyecto Android utiliza la clase `AnalyticsManager` para facilitar la gestión de eventos de análisis a través de diversos proveedores. La estructura del proyecto se organiza en paquetes lógicos para mejorar la legibilidad y extensibilidad del código.
 
-# Diagram
-
-![Spanish Diagram](spanish_diagram.png)
+![Video](https://github.com/David-Hackro/Event-Hub-Manager/assets/4633870/29129874-0fa4-41e3-ae60-d035d2eb971b)
 
 ## Configuración
 
@@ -25,6 +23,10 @@ class MyApp : Application() {
     }
 }
 ```
+# Diagram
+
+![Spanish Diagram](spanish_diagram.png)
+
 
 ## Uso
 
